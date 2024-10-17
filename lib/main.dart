@@ -53,6 +53,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  var selectIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,9 +74,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   label: Text('Favorites'),
                 ),
               ],
-              selectedIndex: 0,
+              selectedIndex: selectIndex,
               onDestinationSelected: (value) {
-                print('selected: $value');
+
+                setState(() {
+                  selectIndex = value;
+                });
+                
               },
             ),
           ),
